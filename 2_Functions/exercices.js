@@ -113,10 +113,10 @@ function ajouterPotion(inventaire, potion) {
 
 
 // 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 4 ===");
-const nouvellePotion = fabriquerPotion("potion_mana", 20, 3);
-ajouterPotion(inventaire, nouvellePotion);
-console.log("Inventaire après ajout:", inventaire);
+// console.log("=== EXERCICE 4 ===");
+// const nouvellePotion = fabriquerPotion("potion_mana", 20, 3);
+// ajouterPotion(inventaire, nouvellePotion);
+// console.log("Inventaire après ajout:", inventaire);
 
 
 // ============================================
@@ -127,15 +127,24 @@ console.log("Inventaire après ajout:", inventaire);
 
 // ✍️ TON CODE ICI
 // Crée tes fonctions getPotionsEnStock() et getPotionsEnRupture() ci-dessous
+function getPotionsEnStock(inventaire) {
+  return inventaire.filter(potion => {
+    return potion.stock > 0;
+  });
+}
 
-
+function getPotionsEnRupture(inventaire) {
+  return inventaire.filter(potion => {
+    return potion.stock === 0;
+  })
+}
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 5 ===");
-// console.log("Inventaire complet:", inventaire);
-// console.log("Potions en stock:", getPotionsEnStock(inventaire));
-// console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
+console.log("=== EXERCICE 5 ===");
+console.log("Inventaire complet:", inventaire);
+console.log("Potions en stock:", getPotionsEnStock(inventaire));
+console.log("Potions en rupture:", getPotionsEnRupture(inventaire));
 
 
 // ============================================
