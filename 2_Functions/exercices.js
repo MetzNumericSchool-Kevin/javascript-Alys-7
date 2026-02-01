@@ -60,9 +60,9 @@ function calculerPrixTotal(id_potion, inventaire, quantite=1) {
 
 
 // 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 2 ===");
-const prix = calculerPrixTotal("potion_soin", inventaire, 3);
-console.log("Prix pour 3 potions:", prix, "🪙");
+// console.log("=== EXERCICE 2 ===");
+// const prix = calculerPrixTotal("potion_soin", inventaire, 3);
+// console.log("Prix pour 3 potions:", prix, "🪙");
 
 
 // ============================================
@@ -73,16 +73,17 @@ console.log("Prix pour 3 potions:", prix, "🪙");
 
 // ✍️ TON CODE ICI
 // Crée ta fonction fabriquerPotion() ci-dessous
-
-
+function fabriquerPotion(id, prix=10, stock=1) {
+  return {id: id, prix: prix, stock: stock};
+}
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 3 ===");
-// const potion1 = fabriquerPotion("potion_mana", 15, 5);
-// console.log(potion1);
-// const potion2 = fabriquerPotion("potion_force");
-// console.log(potion2);
+console.log("=== EXERCICE 3 ===");
+const potion1 = fabriquerPotion("potion_mana", 15, 5);
+console.log(potion1);
+const potion2 = fabriquerPotion("potion_force");
+console.log(potion2);
 
 
 // ============================================
