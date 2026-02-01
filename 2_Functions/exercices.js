@@ -272,15 +272,15 @@ function creerInventaire() {
 
 
 // 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 8 ===");
-const boutiqueA = creerInventaire();
-const boutiqueB = creerInventaire();
+// console.log("=== EXERCICE 8 ===");
+// const boutiqueA = creerInventaire();
+// const boutiqueB = creerInventaire();
 
-boutiqueA.ajouterPotion(fabriquerPotion("potion_soin", 10, 5));
-boutiqueB.ajouterPotion(fabriquerPotion("potion_mana", 15, 0));
+// boutiqueA.ajouterPotion(fabriquerPotion("potion_soin", 10, 5));
+// boutiqueB.ajouterPotion(fabriquerPotion("potion_mana", 15, 0));
 
-console.log("Boutique A - Potions en stock:", boutiqueA.getPotionsEnStock());
-console.log("Boutique B - Potions en rupture:", boutiqueB.getPotionsEnRupture());
+// console.log("Boutique A - Potions en stock:", boutiqueA.getPotionsEnStock());
+// console.log("Boutique B - Potions en rupture:", boutiqueB.getPotionsEnRupture());
 
 
 // ============================================
@@ -291,17 +291,34 @@ console.log("Boutique B - Potions en rupture:", boutiqueB.getPotionsEnRupture())
 
 // ✍️ TON CODE ICI
 // Crée ta classe Inventaire ci-dessous
+class Inventaire {
+  #inventaire;
 
+  constructor() {
+    this.#inventaire = [];
+  }
 
+  ajouterPotion(potion) {
+      return ajouterPotion(this.#inventaire, potion);
+  }
+
+  getPotionsEnStock() {
+    return getPotionsEnStock(this.#inventaire);
+  }
+
+  getPotionsEnRupture() {
+    return getPotionsEnRupture(this.#inventaire);
+  }
+}
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 9 ===");
-// const boutiqueC = new Inventaire();
-// const boutiqueD = new Inventaire();
-//
-// boutiqueC.ajouterPotion(fabriquerPotion("potion_soin", 10, 5));
-// boutiqueD.ajouterPotion(fabriquerPotion("potion_mana", 15, 0));
-//
-// console.log("Boutique C - Potions en stock:", boutiqueC.getPotionsEnStock());
-// console.log("Boutique D - Potions en rupture:", boutiqueD.getPotionsEnRupture());
+console.log("=== EXERCICE 9 ===");
+const boutiqueC = new Inventaire();
+const boutiqueD = new Inventaire();
+
+boutiqueC.ajouterPotion(fabriquerPotion("potion_soin", 10, 5));
+boutiqueD.ajouterPotion(fabriquerPotion("potion_mana", 15, 0));
+
+console.log("Boutique C - Potions en stock:", boutiqueC.getPotionsEnStock());
+console.log("Boutique D - Potions en rupture:", boutiqueD.getPotionsEnRupture());
