@@ -79,11 +79,11 @@ function fabriquerPotion(id, prix=10, stock=1) {
 
 
 // 🧪 TESTS - Décommente pour tester
-console.log("=== EXERCICE 3 ===");
-const potion1 = fabriquerPotion("potion_mana", 15, 5);
-console.log(potion1);
-const potion2 = fabriquerPotion("potion_force");
-console.log(potion2);
+// console.log("=== EXERCICE 3 ===");
+// const potion1 = fabriquerPotion("potion_mana", 15, 5);
+// console.log(potion1);
+// const potion2 = fabriquerPotion("potion_force");
+// console.log(potion2);
 
 
 // ============================================
@@ -94,15 +94,29 @@ console.log(potion2);
 
 // ✍️ TON CODE ICI
 // Crée ta fonction ajouterPotion() ci-dessous
-
-
+function ajouterPotion(inventaire, potion) {
+  let potion_existante = inventaire.find(potion_inventaire => {
+    if (potion.id == potion_inventaire.id) {
+      return potion_inventaire;
+    }
+  })
+  if (potion_existante) {
+    inventaire[inventaire.indexOf(potion_existante)].prix = potion.prix;
+    inventaire[inventaire.indexOf(potion_existante)].stock += potion.stock;
+  } else {
+    inventaire.push(potion);
+    inventaire.sort((potion1, potion2) => {
+      return potion1.prix - potion2.prix;
+    });
+  }
+}
 
 
 // 🧪 TESTS - Décommente pour tester
-// console.log("=== EXERCICE 4 ===");
-// const nouvellePotion = fabriquerPotion("potion_mana", 20, 3);
-// ajouterPotion(inventaire, nouvellePotion);
-// console.log("Inventaire après ajout:", inventaire);
+console.log("=== EXERCICE 4 ===");
+const nouvellePotion = fabriquerPotion("potion_mana", 20, 3);
+ajouterPotion(inventaire, nouvellePotion);
+console.log("Inventaire après ajout:", inventaire);
 
 
 // ============================================
