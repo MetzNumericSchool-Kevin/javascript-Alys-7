@@ -6,6 +6,9 @@
 
 // ✍️ TON CODE ICI
 // Sélectionne le <h1> et affiche son texte dans la console
+const titre = document.querySelector('h1');
+console.log(titre.textContent);
+
 
 // ============================================
 // EXERCICE 2 : Des informations manquent !
