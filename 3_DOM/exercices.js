@@ -44,6 +44,11 @@ a_supprimer.remove();
 
 // ✍️ TON CODE ICI
 // Ajoute un événement 'click' sur le bouton #call_archibald
+call = document.querySelector('#call_archibald');
+call.addEventListener('click', function () {
+  alert( `🧙‍♂️ J'arrive, j'arrive Aventurier !`);
+})
+
 
 // ============================================
 // EXERCICE 5 : Faisons un peu de magie 🪄
