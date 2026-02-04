@@ -18,6 +18,11 @@ console.log(titre.textContent);
 
 // ✍️ TON CODE ICI
 // Crée un nouveau paragraphe et ajoute-le dans #description_boutique
+const description_boutique = document.querySelector('#description_boutique');
+const nouveau_paragraphe = document.createElement('p');
+nouveau_paragraphe.textContent = "Pour cela, il vous suffit de cliquer sur une des potions de la liste ci-dessous pour l'acheter.";
+description_boutique.appendChild(nouveau_paragraphe);
+
 
 // ============================================
 // EXERCICE 3 : Roger, enfoiré !
