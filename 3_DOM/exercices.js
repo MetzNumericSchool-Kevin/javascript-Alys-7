@@ -32,6 +32,9 @@ description_boutique.appendChild(nouveau_paragraphe);
 
 // ✍️ TON CODE ICI
 // Supprime le <span id="blague_de_roger_le_sorcier">
+const a_supprimer = document.getElementById("blague_de_roger_le_sorcier");
+a_supprimer.remove();
+
 
 // ============================================
 // EXERCICE 4 : Archibald n'est pas là, appelons-le !
