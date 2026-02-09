@@ -304,3 +304,35 @@ tousLesInputs.forEach(input => {
 // Pour chaque potion, vérifie si le nom ou la description contient le texte recherché
 // Affiche/cache les potions avec classList.add/remove('hidden')
 // Affiche le nombre de résultats et le message "Aucune potion trouvée" si besoin
+const champDeRecherche = document.querySelector('#search-input');
+const cartes = document.querySelectorAll('.searchable-potion');
+const compteur = document.querySelector('#search-results-count');
+const message = document.querySelector('#no-results');
+cartes.forEach(carte => {
+  carte.classList.add('hidden');
+});
+message.classList.remove('hidden');
+let nombreCarteAffichee = 0;
+champDeRecherche.addEventListener('input', () => {
+  const texte = champDeRecherche.value;
+  nombreCarteAffichee = 0;
+  cartes.forEach(carte => {
+    const titre = carte.querySelector('.card-title').textContent;
+    const description = carte.querySelector('.card-text').textContent;
+    carte.classList.toggle('hidden', !titre.toLowerCase().includes(texte.toLowerCase()) && !description.toLowerCase().includes(texte.toLowerCase()) || !texte);
+    if (!carte.classList.contains('hidden')) {
+      nombreCarteAffichee += 1;
+    }
+  });
+  if (nombreCarteAffichee === 0) {
+    message.classList.remove('hidden');
+    compteur.innerHTML = "";
+  } else {
+    message.classList.add('hidden');
+    if (nombreCarteAffichee === 1) {
+      compteur.innerHTML = "1 potion trouvée"
+    } else {
+      compteur.innerHTML = nombreCarteAffichee + " potions trouvées";
+    }
+  }
+});
