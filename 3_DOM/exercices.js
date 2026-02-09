@@ -227,6 +227,39 @@ infos.forEach(bouton => {
 // Valide le champ (min 3 caractères pour texte, > 0 pour prix)
 // Ajoute les classes 'valid' ou 'invalid' et affiche un message
 // Active/désactive le bouton submit selon la validité globale
+const nomPotion = document.querySelector('#potion-name');
+const ingredientPotion = document.querySelector('#potion-ingredient');
+const prixPotion = document.querySelector('#potion-price');
+const formulaire2 = document.querySelector('#custom-potion-form');
+formulaire2.addEventListener('input', () => {
+  const nom = nomPotion.value;
+  const ingredient = ingredientPotion.value;
+  const prix = prixPotion.value;
+  nomPotion.classList.toggle('valid', nom.length >= 3);
+  if (nom.length >= 3) {
+    nomPotion.nextElementSibling.innerHTML = "OK";
+  } else {
+    nomPotion.nextElementSibling.innerHTML = "Pas OK";
+  }
+  ingredientPotion.classList.toggle('valid', ingredient.length >= 3);
+  if (ingredient.length >= 3) {
+    ingredientPotion.nextElementSibling.innerHTML = "OK";
+  } else {
+    ingredientPotion.nextElementSibling.innerHTML = "Pas OK";
+  }
+  prixPotion.classList.toggle('valid', parseInt(prix) > 0);
+  if (parseInt(prix) > 0) {
+    prixPotion.nextElementSibling.innerHTML = "OK";
+  } else {
+    prixPotion.nextElementSibling.innerHTML = "Pas OK";
+  }
+  if (nom.length >= 3 && ingredient.length >= 3 && parseInt(prix) > 0) {
+    formulaire2.querySelector('button').disabled = false;
+  } else {
+    formulaire2.querySelector('button').disabled = true;
+  }
+});
+
 
 // ============================================
 // EXERCICE 12 : Calculateur de Commande 🧮
