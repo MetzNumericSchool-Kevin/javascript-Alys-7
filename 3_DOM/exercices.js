@@ -158,6 +158,18 @@ function afficherPotion(potion) {
 // Sélectionne le miroir et les éléments à afficher/cacher
 // Utilise mouseenter et mouseleave pour détecter le survol
 // Utilise classList.remove() et classList.add() pour afficher le reflet
+const miroir = document.querySelector('#magic-mirror');
+const miroirContour = miroir.querySelector('.mirror-surface');
+const miroirReflexion = miroir.querySelector('.mirror-reflection');
+miroir.addEventListener('mouseenter', (event) => {
+  miroirContour.classList.add('hidden');
+  miroirReflexion.classList.remove('hidden');
+});
+miroir.addEventListener('mouseleave', (event) => {
+  miroirContour.classList.remove('.hidden');
+  miroirReflexion.classList.add('hidden');
+});
+
 
 // ============================================
 // EXERCICE 9 : L'Arbre Généalogique des Potions 🌳
