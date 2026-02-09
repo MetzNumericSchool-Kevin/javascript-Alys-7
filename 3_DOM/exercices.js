@@ -181,6 +181,14 @@ miroir.addEventListener('mouseleave', (event) => {
 // Sélectionne toutes les catégories de potions
 // Pour chaque catégorie, trouve la liste (children)
 // Ajoute la classe 'first' au premier item et 'last' au dernier item
+const potionCategorie = document.querySelectorAll('.potion-category');
+potionCategorie.forEach((categorie => {
+  const listeCategorie = categorie.querySelector('.potion-list');
+  const items = listeCategorie.querySelectorAll('.potion-item');
+  items[0].classList.add('first');
+  items[items.length - 1].classList.add('last');
+}));
+
 
 // ============================================
 // EXERCICE 10 : Les Étiquettes Magiques 🏷️
