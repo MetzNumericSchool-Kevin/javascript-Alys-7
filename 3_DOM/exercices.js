@@ -273,6 +273,24 @@ formulaire2.addEventListener('input', () => {
 // Calcule le total de la ligne (quantité × prix)
 // Affiche le total de la ligne
 // Calcule et affiche le total général
+const tousLesInputs = document.querySelectorAll('.quantity-input');
+const grandTotal = document.querySelector('#grand-total');
+tousLesInputs.forEach(input => {
+  input.addEventListener('input', () => {
+    const quantite = input.value || 0;
+    const prixUnitaire = input.dataset.price;
+    const totalDeLaLigne = parseInt(quantite) * parseInt(prixUnitaire);
+    const totalPrice = input.nextElementSibling.querySelector('.total-price');
+    totalPrice.innerHTML = totalDeLaLigne;
+    if (input.dataset.valeur) {
+      grandTotal.innerHTML = parseInt(grandTotal.textContent) - input.dataset.valeur + totalDeLaLigne;
+    } else {
+      grandTotal.innerHTML = parseInt(grandTotal.textContent) - 0 + totalDeLaLigne;
+    }
+    input.setAttribute("data-valeur", totalDeLaLigne);
+  });
+});
+
 
 // ============================================
 // EXERCICE 13 : Recherche de Potions 🔍
